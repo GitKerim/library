@@ -19,6 +19,7 @@ function loop() {
   myLibrary.forEach((book) => {
     const div = document.createElement('div');
     div.innerText = `name ${book.bookName} author ${book.author}`;
-    document.body.appendChild(div);
+    div.classList.add('bookdiv');
+    document.getElementsByClassName('main')[0].appendChild(div);
   });
 }
