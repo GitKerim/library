@@ -1,9 +1,25 @@
 const myLibrary = [
-  { bookName: 'knjiga', author: 'wqe', pages: '123', read: true },
-  { bookName: 'knjiga2', author: 'wqe', pages: '321', read: false },
-  { bookName: 'knjiga3', author: 'wqe', pages: '213', read: true },
+  {
+    bookName: 'The Fellowship of the Ring',
+    author: 'J. R. R. Tolkien',
+    pages: '423',
+    read: true,
+  },
+  {
+    bookName: 'The Two Towers',
+    author: 'J. R. R. Tolkien',
+    pages: '352',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
 ];
 let knjiga;
+let div;
 function Book(bookName, author, pages, read) {
   this.bookName = bookName;
   this.author = author;
@@ -11,12 +27,17 @@ function Book(bookName, author, pages, read) {
   this.read = read;
 }
 
-myLibrary.forEach((book) => {
-  const div = document.createElement('div');
-  div.innerText = `name ${book.bookName} author ${book.author}`;
-  div.classList.add('bookdiv');
-  document.getElementById('main').appendChild(div);
-});
+function loop() {
+  document.getElementById('main').innerText = '';
+  myLibrary.forEach((book) => {
+    div = document.createElement('div');
+    div.innerText = `${book.bookName} ${book.author} ${book.pages} ${
+      book.read ? 'read' : 'not read'
+    }`;
+    div.classList.add('bookdiv');
+    document.getElementById('main').appendChild(div);
+  });
+}
 
 function addBooktoLibrary() {
   knjiga = new Book();
@@ -25,4 +46,6 @@ function addBooktoLibrary() {
   knjiga.pages = prompt('p');
   knjiga.read = prompt('r');
   myLibrary.push(knjiga);
+  loop();
 }
+loop();
