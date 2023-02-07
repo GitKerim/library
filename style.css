@@ -9,23 +9,49 @@ body {
   grid-template-rows: 2fr 10fr 30px;
 }
 .header {
-  background-color: #581845;
+  background-color: #111827;
   display: flex;
   align-items: center;
 }
 .header > p {
   color: white;
-  font-size: 24px;
-  margin-left: 15px;
+  font-size: 40px;
+  margin-left: 15%;
+  font-weight: 800;
 }
 #main {
   display: flex;
+  padding: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .bookdiv {
   background-color: white;
-  height: 100px;
+  height: 200px;
+  width: 150px;
+  border: #111827, 1px;
+  border-style: solid;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(15, 23, 42, 0.4);
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
+  gap: 3px;
+  text-align: center;
+}
+.bookdiv > p:first-child {
+  font-size: 20px;
+  background-color: #111827;
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bookdiv > p {
+  padding: 5px;
 }
 
 .footer {
+  background-color: #111827;
 }
