@@ -17,9 +17,200 @@ const myLibrary = [
     pages: '416',
     read: true,
   },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
+  {
+    bookName: 'The Return of the King',
+    author: 'J. R. R. Tolkien',
+    pages: '416',
+    read: true,
+  },
 ];
 let knjiga;
-let div;
 function Book(bookName, author, pages, read) {
   this.bookName = bookName;
   this.author = author;
@@ -30,11 +221,20 @@ function Book(bookName, author, pages, read) {
 function loop() {
   document.getElementById('main').innerText = '';
   myLibrary.forEach((book) => {
-    div = document.createElement('div');
-    div.innerText = `${book.bookName} ${book.author} ${book.pages} ${
-      book.read ? 'read' : 'not read'
-    }`;
+    const div = document.createElement('div');
+    const name = document.createElement('p');
+    const author = document.createElement('p');
+    const pages = document.createElement('p');
+    const read = document.createElement('p');
+    name.innerText = `${book.bookName}`;
+    author.innerText = `${book.author}`;
+    pages.innerText = `Number of pages : ${book.pages} `;
+    read.innerText = `${book.read ? 'Read' : 'Not read'}`;
     div.classList.add('bookdiv');
+    div.appendChild(name);
+    div.appendChild(author);
+    div.appendChild(pages);
+    div.appendChild(read);
     document.getElementById('main').appendChild(div);
   });
 }
