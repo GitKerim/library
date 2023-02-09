@@ -59,8 +59,10 @@ function addBooktoLibrary() {
 
 function popup() {
   const pop = document.getElementById('popup');
-  pop.style.visibility = 'visible';
+  pop.style.visibility === 'visible'
+    ? (pop.style.visibility = 'hidden')
+    : (pop.style.visibility = 'visible');
 }
 document.getElementById('addbook').onclick = () => popup();
-
+document.getElementById('closebutton').onclick = () => popup();
 loop();
