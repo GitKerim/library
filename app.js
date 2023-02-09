@@ -56,4 +56,11 @@ function addBooktoLibrary() {
   myLibrary.push(knjiga);
   loop();
 }
+
+function popup() {
+  const pop = document.getElementById('popup');
+  pop.style.visibility = 'visible';
+}
+document.getElementById('addbook').onclick = () => popup();
+
 loop();
