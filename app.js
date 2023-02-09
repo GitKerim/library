@@ -63,6 +63,14 @@ function popup() {
     ? (pop.style.visibility = 'hidden')
     : (pop.style.visibility = 'visible');
 }
+function readButton() {
+  const checkbox = document.getElementById('read');
+  const read = document.getElementById('readlabel');
+  checkbox.checked === true
+    ? (read.style.backgroundColor = 'red')((read.innerText = 'Not read'))
+    : (read.style.backgroundColor = 'green')((read.innerText = 'Read'));
+}
 document.getElementById('addbook').onclick = () => popup();
 document.getElementById('closebutton').onclick = () => popup();
+document.getElementById('readlabel').onclick = () => readButton();
 loop();
