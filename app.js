@@ -18,7 +18,13 @@ const myLibrary = [
     read: true,
   },
 ];
+
+const bookTitle = document.getElementById('bookname');
+const bookAuthor = document.getElementById('author');
+const bookPages = document.getElementById('pages');
+const readStatus = document.getElementById('read');
 let knjiga;
+
 function Book(bookName, author, pages, read) {
   this.bookName = bookName;
   this.author = author;
@@ -36,7 +42,7 @@ function loop() {
     const read = document.createElement('p');
     name.innerText = `${book.bookName}`;
     author.innerText = `${book.author}`;
-    pages.innerText = `Number of pages : ${book.pages} `;
+    pages.innerText = `${book.pages} pages`;
     read.innerText = `${book.read ? 'Read' : 'Not read'}`;
     div.classList.add('bookdiv');
     div.appendChild(name);
@@ -49,14 +55,19 @@ function loop() {
 
 function addBooktoLibrary() {
   knjiga = new Book();
-  knjiga.bookName = prompt('b');
-  knjiga.author = prompt('a');
-  knjiga.pages = prompt('p');
-  knjiga.read = prompt('r');
-  myLibrary.push(knjiga);
-  loop();
+  if (
+    bookAuthor.value !== '' ||
+    bookTitle.value !== '' ||
+    bookPages.value !== ''
+  ) {
+    knjiga.bookName = bookTitle.value;
+    knjiga.author = bookAuthor.value;
+    knjiga.pages = bookPages.value;
+    knjiga.read = readStatus.value;
+    myLibrary.push(knjiga);
+    loop();
+  }
 }
-
 function popup() {
   const pop = document.getElementById('popup');
   pop.style.visibility === 'visible'
@@ -70,6 +81,11 @@ function readButton() {
     ? (read.style.backgroundColor = 'red')((read.innerText = 'Not read'))
     : (read.style.backgroundColor = 'green')((read.innerText = 'Read'));
 }
+
+document.getElementById('form').onsubmit = (e) => {
+  e.preventDefault();
+  addBooktoLibrary();
+};
 document.getElementById('addbook').onclick = () => popup();
 document.getElementById('closebutton').onclick = () => popup();
 document.getElementById('readlabel').onclick = () => readButton();
