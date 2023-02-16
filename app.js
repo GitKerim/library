@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 const myLibrary = [
   {
     bookName: 'The Fellowship of the Ring',
@@ -33,17 +34,18 @@ function Book(bookName, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-let deleteBook;
+
 function loop() {
   document.getElementById('main').innerText = '';
   let i = 0;
+  let j = 0;
   myLibrary.forEach((book) => {
     const div = document.createElement('div');
     const name = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const readStatus = document.createElement('div');
-    deleteBook = document.createElement('button');
+    const deleteBook = document.createElement('button');
     const buttons = document.createElement('div');
     name.innerText = `${book.bookName}`;
     author.innerText = `${book.author}`;
@@ -51,7 +53,7 @@ function loop() {
     readStatus.innerText = `${book.read === true ? 'Read' : 'Not read'}`;
     deleteBook.innerText = 'Delete';
     deleteBook.dataset.id = i++;
-    deleteBook.onclick = () => deleteObject();
+    readStatus.dataset.id = j++;
     buttons.appendChild(readStatus);
     buttons.appendChild(deleteBook);
     buttons.classList.add('cardbuttons');
@@ -62,6 +64,8 @@ function loop() {
     div.appendChild(buttons);
     document.getElementById('main').appendChild(div);
   });
+  deleteObject();
+  readStatusChange();
 }
 
 function addBooktoLibrary() {
@@ -87,6 +91,7 @@ function popup() {
     pop.style.visibility = 'visible';
   }
 }
+
 function readButton() {
   if (checkbox.checked !== true) {
     readLabel.style.backgroundColor = 'green';
@@ -96,9 +101,35 @@ function readButton() {
     readLabel.innerText = 'Not read';
   }
 }
+
+function readStatusChange() {
+  const arr = Array.from(document.querySelectorAll('div[data-id]'));
+  arr.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      const i = elem.dataset.id;
+      if (myLibrary[i].read !== true) {
+        myLibrary[i].read = true;
+      } else {
+        myLibrary[i].read = false;
+      }
+      loop();
+      console.log(i);
+    });
+  });
+}
+
 function deleteObject() {
-  myLibrary.splice(deleteBook.dataset.id, 1);
-  loop();
+  const arr = Array.from(document.querySelectorAll('button[data-id]'));
+  arr.forEach((elem) => {
+    console.log(elem);
+    const num = elem.dataset.id;
+    console.log(num);
+    elem.addEventListener('click', () => {
+      myLibrary.splice(num, 1);
+      loop();
+      console.log(num);
+    });
+  });
 }
 
 document.getElementById('form').onsubmit = (e) => {
