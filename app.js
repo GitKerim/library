@@ -51,6 +51,13 @@ function loop() {
     author.innerText = `${book.author}`;
     pages.innerText = `${book.pages} Pages`;
     readStatus.innerText = `${book.read === true ? 'Read' : 'Not read'}`;
+    if (book.read === true) {
+      readStatus.style.backgroundColor = '#00A86B';
+      readStatus.innerText = 'Read';
+    } else {
+      readStatus.style.backgroundColor = '#cb4154';
+      readStatus.innerText = 'Not read';
+    }
     deleteBook.innerText = 'Delete';
     deleteBook.dataset.id = i++;
     readStatus.dataset.id = j++;
@@ -94,10 +101,10 @@ function popup() {
 
 function readButton() {
   if (checkbox.checked !== true) {
-    readLabel.style.backgroundColor = 'green';
+    readLabel.style.backgroundColor = '#00A86B';
     readLabel.innerText = 'Read';
   } else {
-    readLabel.style.backgroundColor = 'red';
+    readLabel.style.backgroundColor = '#cb4154';
     readLabel.innerText = 'Not read';
   }
 }
