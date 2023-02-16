@@ -57,19 +57,20 @@ body {
   text-align: center;
   justify-content: center;
 }
-.bookdiv > :nth-child(1) {
+.bookdiv p:nth-child(1) {
   font-size: 20px;
   background-color: #111827;
   color: white;
   height: 50px;
+  min-width: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
   padding: 5px;
 }
-.bookdiv > :nth-child(2),
-.bookdiv > :nth-child(3) {
+.bookdiv p:nth-child(2),
+.bookdiv p:nth-child(3) {
   height: 25px;
   align-self: center;
   justify-self: center;
