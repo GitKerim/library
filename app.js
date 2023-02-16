@@ -33,21 +33,25 @@ function Book(bookName, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+let deleteBook;
 function loop() {
   document.getElementById('main').innerText = '';
+  let i = 0;
   myLibrary.forEach((book) => {
     const div = document.createElement('div');
     const name = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
     const readStatus = document.createElement('div');
-    const deleteBook = document.createElement('button');
+    deleteBook = document.createElement('button');
     const buttons = document.createElement('div');
     name.innerText = `${book.bookName}`;
     author.innerText = `${book.author}`;
     pages.innerText = `${book.pages} Pages`;
     readStatus.innerText = `${book.read === true ? 'Read' : 'Not read'}`;
     deleteBook.innerText = 'Delete';
+    deleteBook.dataset.id = i++;
+    deleteBook.onclick = () => deleteObject();
     buttons.appendChild(readStatus);
     buttons.appendChild(deleteBook);
     buttons.classList.add('cardbuttons');
@@ -91,6 +95,10 @@ function readButton() {
     readLabel.style.backgroundColor = 'red';
     readLabel.innerText = 'Not read';
   }
+}
+function deleteObject() {
+  myLibrary.splice(deleteBook.dataset.id, 1);
+  loop();
 }
 
 document.getElementById('form').onsubmit = (e) => {
