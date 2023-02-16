@@ -22,7 +22,9 @@ const myLibrary = [
 const bookTitle = document.getElementById('bookname');
 const bookAuthor = document.getElementById('author');
 const bookPages = document.getElementById('pages');
-const readStatus = document.getElementById('read');
+const checkbox = document.getElementById('read');
+const readLabel = document.getElementById('readlabel');
+const pop = document.getElementById('popup');
 let knjiga;
 
 function Book(bookName, author, pages, read) {
@@ -31,7 +33,6 @@ function Book(bookName, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-
 function loop() {
   document.getElementById('main').innerText = '';
   myLibrary.forEach((book) => {
@@ -39,16 +40,21 @@ function loop() {
     const name = document.createElement('p');
     const author = document.createElement('p');
     const pages = document.createElement('p');
-    const read = document.createElement('p');
+    const readStatus = document.createElement('div');
+    const deleteBook = document.createElement('button');
+    const buttons = document.createElement('div');
     name.innerText = `${book.bookName}`;
     author.innerText = `${book.author}`;
-    pages.innerText = `${book.pages} pages`;
-    read.innerText = `${book.read ? 'Read' : 'Not read'}`;
+    pages.innerText = `${book.pages} Pages`;
+    readStatus.innerText = `${book.read === true ? 'Read' : 'Not read'}`;
+    buttons.appendChild(readStatus);
+    buttons.appendChild(deleteBook);
+    buttons.classList.add('cardbuttons');
     div.classList.add('bookdiv');
     div.appendChild(name);
     div.appendChild(author);
     div.appendChild(pages);
-    div.appendChild(read);
+    div.appendChild(buttons);
     document.getElementById('main').appendChild(div);
   });
 }
@@ -63,28 +69,36 @@ function addBooktoLibrary() {
     knjiga.bookName = bookTitle.value;
     knjiga.author = bookAuthor.value;
     knjiga.pages = bookPages.value;
-    knjiga.read = readStatus.value;
+    knjiga.read = checkbox.checked;
     myLibrary.push(knjiga);
     loop();
+    pop.style.visibility = 'hidden';
   }
 }
 function popup() {
-  const pop = document.getElementById('popup');
-  pop.style.visibility === 'visible'
-    ? (pop.style.visibility = 'hidden')
-    : (pop.style.visibility = 'visible');
+  if (pop.style.visibility === 'visible') {
+    pop.style.visibility = 'hidden';
+  } else {
+    pop.style.visibility = 'visible';
+  }
 }
 function readButton() {
-  const checkbox = document.getElementById('read');
-  const read = document.getElementById('readlabel');
-  checkbox.checked === true
-    ? (read.style.backgroundColor = 'red')((read.innerText = 'Not read'))
-    : (read.style.backgroundColor = 'green')((read.innerText = 'Read'));
+  if (checkbox.checked !== true) {
+    readLabel.style.backgroundColor = 'green';
+    readLabel.innerText = 'Read';
+  } else {
+    readLabel.style.backgroundColor = 'red';
+    readLabel.innerText = 'Not read';
+  }
 }
 
 document.getElementById('form').onsubmit = (e) => {
   e.preventDefault();
   addBooktoLibrary();
+  document.getElementById('form').reset();
+  checkbox.checked = false;
+  readLabel.style.backgroundColor = 'red';
+  readLabel.innerText = 'Not read';
 };
 document.getElementById('addbook').onclick = () => popup();
 document.getElementById('closebutton').onclick = () => popup();

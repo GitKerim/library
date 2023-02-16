@@ -9,6 +9,8 @@ body {
   grid-template-rows: 2fr 10fr 30px;
   position: relative;
 }
+/* header  */
+
 .header {
   background-color: #111827;
   display: flex;
@@ -31,27 +33,31 @@ body {
   font-size: 40px;
   font-weight: 800;
 }
+/* main part  */
+
 #main {
   display: flex;
   padding: 20px;
   gap: 15px;
   flex-wrap: wrap;
 }
+/* book divs  */
 
 .bookdiv {
   background-color: white;
-  height: 200px;
+  height: 210px;
   width: 150px;
   border: #111827, 1px;
   border-style: solid;
   border-radius: 10px;
   box-shadow: 2px 2px 2px 1px rgba(15, 23, 42, 0.4);
   display: grid;
-  grid-template-rows: 2fr 1fr 1fr 1fr 2fr;
-  gap: 3px;
+  grid-template-rows: 2fr 1fr 1fr 2fr;
+  gap: 10px;
   text-align: center;
+  justify-content: center;
 }
-.bookdiv > p:first-child {
+.bookdiv > :nth-child(1) {
   font-size: 20px;
   background-color: #111827;
   color: white;
@@ -59,10 +65,44 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.bookdiv > p {
+  font-weight: 600;
   padding: 5px;
 }
+.bookdiv > :nth-child(2),
+.bookdiv > :nth-child(3) {
+  height: 25px;
+  align-self: center;
+  justify-self: center;
+  width: 80%;
+  font-weight: 600;
+  border: solid;
+  border-width: thin;
+  border-radius: 4px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cardbuttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  border-style: solid;
+}
+.cardbuttons > :nth-child(1) {
+  width: 60px;
+  height: 35px;
+  box-sizing: border-box;
+  padding: 0px;
+}
+.cardbuttons > :nth-child(2) {
+  width: 60px;
+  height: 35px;
+}
+/* form popup */
+
 #popup {
   position: absolute;
   left: 0;
@@ -139,7 +179,6 @@ input[type='text'],
 input[type='number'] {
   font-size: 18px;
   font-weight: 600;
-  color: #111827;
 }
 .buttons {
   display: flex;
@@ -156,6 +195,7 @@ input[type='number'] {
   font-weight: 600;
   background-color: white;
   border-style: solid;
+  cursor: pointer;
 }
 label {
   width: 130px;
