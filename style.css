@@ -85,19 +85,21 @@ body {
 }
 .cardbuttons {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-self: center;
-  justify-self: center;
-  border-style: solid;
+  justify-content: space-evenly;
+  width: 100%;
 }
-.cardbuttons > :nth-child(1) {
+.cardbuttons div:nth-child(1) {
   width: 60px;
   height: 35px;
   box-sizing: border-box;
-  padding: 0px;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: thin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cardbuttons > :nth-child(2) {
+.cardbuttons button:nth-child(2) {
   width: 60px;
   height: 35px;
 }

@@ -47,6 +47,7 @@ function loop() {
     author.innerText = `${book.author}`;
     pages.innerText = `${book.pages} Pages`;
     readStatus.innerText = `${book.read === true ? 'Read' : 'Not read'}`;
+    deleteBook.innerText = 'Delete';
     buttons.appendChild(readStatus);
     buttons.appendChild(deleteBook);
     buttons.classList.add('cardbuttons');
