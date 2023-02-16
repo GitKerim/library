@@ -113,7 +113,6 @@ function readStatusChange() {
         myLibrary[i].read = false;
       }
       loop();
-      console.log(i);
     });
   });
 }
@@ -121,13 +120,10 @@ function readStatusChange() {
 function deleteObject() {
   const arr = Array.from(document.querySelectorAll('button[data-id]'));
   arr.forEach((elem) => {
-    console.log(elem);
     const num = elem.dataset.id;
-    console.log(num);
     elem.addEventListener('click', () => {
       myLibrary.splice(num, 1);
       loop();
-      console.log(num);
     });
   });
 }
